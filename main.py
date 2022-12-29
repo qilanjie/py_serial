@@ -71,17 +71,17 @@ def get_com_tx_buf():
 
 def thread_com_receive():
     rx_buf = []
-    a=''
-    b=''
+    a = ''
+    b = ''
     while True:
         try:
 
-            rx_buf.extend(COMM.read_all())   # 转化为整型数字
-            a=rx_buf.__len__()
+            rx_buf.extend(COMM.read_all())  # 转化为整型数字
+            a = rx_buf.__len__()
             time.sleep(0.01)
             rx_buf.extend(COMM.read_all())  # 转化为整型数字
             b = rx_buf.__len__()
-            if a==b and a!=0:
+            if a == b and a != 0:
                 print("串口收到消息:", rx_buf.__len__())
                 rx_buf.clear()
         except:
